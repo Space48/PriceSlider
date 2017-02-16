@@ -1,12 +1,18 @@
-<div class="block filter">
-    <div class="block-title filter-title">
+<div class="block price-slider">
+    <div class="block-title slider-title">
         <strong><?php /* @escapeNotVerified */ echo __('Price') ?></strong>
     </div>
     <strong class="block-subtitle filter-subtitle"><?php /* @escapeNotVerified */ echo __('Price') ?></strong>
     <div class="js-price-slider">
-        <span class="js-min"></span>
-        <div class="js-bar"></div>
-        <span class="js-max"></span>
+        <div class="price-min">
+            <span class="js-min"></span>
+        </div>
+        <div class="price-bar">
+            <div class="js-bar"></div>
+        </div>
+        <div class="price-max">
+            <span class="js-max"></span>
+        </div>
     </div>
 </div>
 <script type="text/x-magento-init">
@@ -16,7 +22,9 @@
                 "min": 0,
                 "max": 2000,
                 "low": 200,
-                "high": 1500
+                "high": 1500,
+                "waitTimeout": 2000,
+                "currency": "£"
             }
         }
     }

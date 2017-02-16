@@ -5,7 +5,8 @@
             <block class="Magento\Framework\View\Element\Template"
                 template="Space48_PriceSlider2::price-slider.phtml"
                 after="catalog.leftnav"
-                name="catalog.price.slider" />
+                name="catalog.price.slider"
+                as="priceSlider" />
         </referenceContainer>
     </body>
 </page>

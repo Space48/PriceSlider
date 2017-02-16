@@ -3,15 +3,16 @@ define(['jquery'], function ($) {
     var priceSlider = {
 
         init: function (config, node) {
-            /* Cache dom lookups for performance and brevity. */
+            /* Cache DOM lookups for performance and brevity. */
             this.$el = $(node);
             this.$min = this.$('.js-min');
             this.$max = this.$('.js-max');
 
+            this.timer = null;
             this.config = config;
 
             /* Set inital values display */
-            this.setVal(config.low, config.high);
+            this.setVal(this.config.low, this.config.high);
 
             this.build();
         },
@@ -19,7 +20,7 @@ define(['jquery'], function ($) {
         constructUrl(min, max) {
             var url = window.location.href;
             var query = url.split('?');
-            var prefix = encodeURIComponent('price')+'=';
+            var prefix = 'price=';
             var params;
 
             if (query.length > 1) {
@@ -46,7 +47,7 @@ define(['jquery'], function ($) {
         },
 
         $: function (query) {
-            /* Helper method. jQuery with context */
+            /* Helper method: jQuery with context */
             return $(query, this.$el);
         },
 
@@ -65,17 +66,22 @@ define(['jquery'], function ($) {
 
         slide: function (event, ui) {
             /* Display updated values on user interaction */
+            window.clearTimeout(this.timer);
             this.setVal(ui.values[0], ui.values[1]);
         },
 
         setVal: function (min, max) {
-            this.$min.html(min);
-            this.$max.html(max);
+            /* Set values on frontend */
+            this.$min.html(this.config.currency + min);
+            this.$max.html(this.config.currency + max);
         },
 
         change: function (event, ui) {
-            /* Contruct new URL and set when values are selected */
-            window.location.href = this.constructUrl(ui.values[0], ui.values[1]);
+            /*  Contruct new URL and set window.location when values are selected.
+                Allow delay, to allow time for second slider to be used. */
+            this.timer = window.setTimeout($.proxy(function () {
+                window.location.href = this.constructUrl(ui.values[0], ui.values[1]);
+            }, this), this.config.waitTimeout);
         }
     };
 
