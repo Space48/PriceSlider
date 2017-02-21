@@ -1,5 +1,5 @@
 var config = {
     paths: {
-        'priceSlider': 'Space48_PriceSlider2/js/price-slider'
+        'priceSlider': 'Space48_PriceSlider/js/price-slider'
     }
 };
