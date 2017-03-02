@@ -14,4 +14,4 @@ From the terminal execute que following:
 
 then
 
-`composer require "space48/priceslider:1.0.0"`
+`composer require "space48/priceslider:dev-master"`
