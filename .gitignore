@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+### JetBrains
+
+.idea
+
+### macOS template
+*.DS_Store

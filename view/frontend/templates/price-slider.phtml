@@ -1,3 +1,4 @@
+<?php /** @var Space48\PriceSlider\Block\PriceSlider $block */ ?>
 <div class="block price-slider">
     <div class="block-title slider-title">
         <strong><?php /* @escapeNotVerified */ echo __('Price') ?></strong>
@@ -19,10 +20,10 @@
     {
         ".js-price-slider": {
             "priceSlider": {
-                "min": 0,
-                "max": 2000,
-                "low": 200,
-                "high": 1500,
+                "min": <?php echo $block->getProductsMinPrice() ?>,
+                "max": <?php echo $block->getProductsMaxPrice() ?>,
+                "low": <?php echo $block->getSliderMinPrice() ?>,
+                "high": <?php echo $block->getSliderMaxPrice() ?>,
                 "waitTimeout": 2000,
                 "currency": "£"
             }
