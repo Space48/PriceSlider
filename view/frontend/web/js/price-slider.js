@@ -57,7 +57,7 @@ define(['jquery'], function ($) {
                 range: true,
                 min: this.config.min,
                 max: this.config.max,
-                step: 10,
+                step: Math.floor((this.config.max - this.config.min) / 100),
                 values: [this.config.low, this.config.high],
                 slide: $.proxy(this.slide, this),
                 change: $.proxy(this.change, this)
