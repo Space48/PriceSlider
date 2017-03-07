@@ -22,8 +22,8 @@
             "priceSlider": {
                 "min": <?php echo $block->getProductsMinPrice() ?>,
                 "max": <?php echo $block->getProductsMaxPrice() ?>,
-                "low": <?php echo $block->getSliderMinPrice() ?>,
-                "high": <?php echo $block->getSliderMaxPrice() ?>,
+                "low": <?php echo ($block->getSliderMinPrice()) ? $block->getSliderMinPrice() : 'null' ?>,
+                "high": <?php echo ($block->getSliderMaxPrice()) ? $block->getSliderMaxPrice() : 'null' ?>,
                 "waitTimeout": 2000,
                 "currency": "£"
             }
