@@ -9,7 +9,7 @@
  * @author      @diazwatson
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Space48\PriceSlider\Test\Integration;
 
@@ -23,6 +23,5 @@ class ModuleConfigTest extends \PHPUnit_Framework_TestCase
         $registrar = new ComponentRegistrar;
         $path = $registrar->getPaths(ComponentRegistrar::MODULE);
         $this->assertArrayHasKey('Space48_PriceSlider', $path);
-
     }
 }

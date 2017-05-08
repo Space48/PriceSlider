@@ -1,5 +1,6 @@
 # PriceSlider
 A simple price slider extension for Magento 2
+<img width="1266" alt="cursor_and_kitchenware__uk_kitchen_accessories___furniture_for_sale__buy_online" src="https://cloud.githubusercontent.com/assets/1080386/25810184/39e8bd60-3407-11e7-9dd3-c6421f06a8df.png">
 
 ## Install
 **Manually** 
@@ -14,4 +15,4 @@ From the terminal execute que following:
 
 then
 
-`composer require "space48/priceslider:1.1.0"`
+`composer require "space48/priceslider:1.0.0"`
