@@ -104,7 +104,7 @@ class PriceSlider extends Template
      *
      * @return mixed
      */
-    private function getCurrentCategory()
+    public function getCurrentCategory()
     {
         return $this->registry->registry('current_category');
     }

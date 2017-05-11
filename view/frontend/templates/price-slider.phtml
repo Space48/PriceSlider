@@ -20,8 +20,8 @@
     {
         ".js-price-slider": {
             "priceSlider": {
-                "min": <?php echo $block->getProductsMinPrice() ?>,
-                "max": <?php echo $block->getProductsMaxPrice() ?>,
+                "min": <?php echo $block->getProductsMinPrice($block->getCurrentCategory()) ?>,
+                "max": <?php echo $block->getProductsMaxPrice($block->getCurrentCategory()) ?>,
                 "low": <?php echo $block->getSliderMinPrice() ?>,
                 "high": <?php echo $block->getSliderMaxPrice() ?>,
                 "waitTimeout": 2000,
