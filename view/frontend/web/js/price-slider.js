@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
 
     var priceSlider = {
 
