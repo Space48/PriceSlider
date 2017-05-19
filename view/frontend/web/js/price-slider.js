@@ -57,17 +57,13 @@ define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
         },
 
         build: function () {
-            // If low is null, use min as low. Same for high/max
-            var low = this.config.low || this.config.min;
-            var high = this.config.high || this.config.max;
-
             // Build jQuery-ui component: http://api.jqueryui.com/slider/
             this.$('.js-bar').slider({
                 range: true,
                 min: this.config.min,
                 max: this.config.max,
                 step: Math.floor((this.config.max - this.config.min) / 100),
-                values: [low, high],
+                values: [this.config.low, this.config.high],
                 slide: $.proxy(this.slide, this),
                 change: $.proxy(this.change, this)
             });
