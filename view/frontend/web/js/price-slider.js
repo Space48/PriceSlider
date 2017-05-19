@@ -11,8 +11,8 @@ define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
             this.timer = null;
             this.config = config;
 
-            /* Set inital values display */
-            this.setVal(this.config.low, this.config.high);
+            /* Set inital values display low/high, default to min/max */
+            this.setVal(this.config.low || this.config.min, this.config.high || this.config.max);
 
             this.build();
         },
@@ -22,6 +22,11 @@ define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
             var query = url.split('?');
             var prefix = 'price=';
             var params;
+
+            /*  If min/max are not present, or the same as low/high,
+                use empty string when constructing URL. */
+            min = (min && min !== this.config.min ? min : '');
+            max = (max && max !== this.config.max ? max : '');
 
             if (query.length > 1) {
                 /* Existing URL parameter */
@@ -35,14 +40,14 @@ define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
                 }
 
                 /* Add price parameter */
-                params.push('price=' + (min ? min : '') + '-' + (max ? max : ''));
+                params.push('price=' + min + '-' + max);
 
                 url = query[0] + (params.length > 0 ? '?' + params.join('&') : '');
 
                 return url;
             } else {
                 /* No URL parameter, create one */
-                return url + '?price=' + (min ? min : '') + '-' + (max ? max : '');
+                return url + '?price=' + min + '-' + max;
             }
         },
 
@@ -52,13 +57,17 @@ define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
         },
 
         build: function () {
+            // If low is null, use min as low. Same for high/max
+            var low = this.config.low || this.config.min;
+            var high = this.config.high || this.config.max;
+
             // Build jQuery-ui component: http://api.jqueryui.com/slider/
             this.$('.js-bar').slider({
                 range: true,
                 min: this.config.min,
                 max: this.config.max,
-                step: 10,
-                values: [this.config.low, this.config.high],
+                step: Math.floor((this.config.max - this.config.min) / 100),
+                values: [low, high],
                 slide: $.proxy(this.slide, this),
                 change: $.proxy(this.change, this)
             });
