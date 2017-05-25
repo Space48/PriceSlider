@@ -89,11 +89,11 @@ class PriceSlider extends Template
      *
      * @return int
      */
-    public function getProductsMinPrice()
+    public function getProductsMinPrice($currentCategory)
     {
         if ($this->minPrice == null) {
             $layer = $this->layerFactory->create();
-            $layer->setCurrentCategory($this->getCurrentCategory());
+            $layer->setCurrentCategory($currentCategory);
             $this->minPrice = floor($layer->getProductCollection()->getMinPrice());
         }
 
@@ -105,7 +105,7 @@ class PriceSlider extends Template
      *
      * @return mixed
      */
-    private function getCurrentCategory()
+    public function getCurrentCategory()
     {
         return $this->registry->registry('current_category');
     }
@@ -115,10 +115,10 @@ class PriceSlider extends Template
      *
      * @return int
      */
-    public function getProductsMaxPrice()
+    public function getProductsMaxPrice($currentCategory)
     {
         if ($this->maxPrice == null) {
-            $this->getLayer()->setCurrentCategory($this->getCurrentCategory());
+            $this->getLayer()->setCurrentCategory($currentCategory);
             $this->maxPrice = floor($this->getLayer()->getProductCollection()->getMaxPrice());
         };
 
