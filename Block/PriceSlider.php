@@ -87,6 +87,8 @@ class PriceSlider extends Template
     /**
      * Get Products Max Price
      *
+     * @param $currentCategory
+     *
      * @return int
      */
     public function getProductsMinPrice($currentCategory)
@@ -112,6 +114,8 @@ class PriceSlider extends Template
 
     /**
      * Get Products Max Price
+     *
+     * @param $currentCategory
      *
      * @return int
      */
