@@ -56,10 +56,10 @@ class PriceSlider extends Template
      *
      * @return mixed
      */
-    public function getSliderMinPrice()
+    public function getSliderMinPrice($currentCategory)
     {
         if (!$this->getPriceRange()['min']) {
-            return $this->getProductsMinPrice();
+            return $this->getProductsMinPrice($currentCategory);
         }
         return $this->getPriceRange()['min'];
     }
@@ -144,10 +144,10 @@ class PriceSlider extends Template
      *
      * @return mixed
      */
-    public function getSliderMaxPrice()
+    public function getSliderMaxPrice($currentCategory)
     {
         if (!$this->getPriceRange()['max']) {
-            return $this->getProductsMaxPrice();
+            return $this->getProductsMaxPrice($currentCategory);
         }
         return $this->getPriceRange()['max'];
     }
