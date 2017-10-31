@@ -3,7 +3,7 @@
     "description": "A simple price slider extension for Magento 2",
     "require": {
         "php": "~7.0.0",
-        "magento/framework": "^100.1.0| ^101.0.0",
+        "magento/framework": "^100.1.0| ^101.0.0"
     },
     "type": "magento2-module",
     "version": "1.2.5",
