@@ -25,7 +25,7 @@
                 "low": <?php echo $block->getSliderMinPrice($block->getCurrentCategory()) ?>,
                 "high": <?php echo $block->getSliderMaxPrice($block->getCurrentCategory()) ?>,
                 "waitTimeout": 2000,
-                "currency": "£"
+                "currency": "<?php echo $block->getCurrencySymbol(); ?>"
             }
         }
     }

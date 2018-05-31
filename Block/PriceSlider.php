@@ -151,4 +151,9 @@ class PriceSlider extends Template
         }
         return $this->getPriceRange()['max'];
     }
+
+    public function getCurrencySymbol()
+    {
+        return $this->_storeManager->getStore()->getCurrentCurrency()->getCurrencySymbol();
+    }
 }
