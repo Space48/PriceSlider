@@ -1,8 +1,13 @@
-define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
+define([
+    'uiComponent',
+    'jquery',
+    'jquery/ui',
+    'jquery/ui/touch-punch',
+    'domReady!'
+], function (Component, $) {
 
-    var priceSlider = {
-
-        init: function (config, node) {
+    return Component.extend({
+        initialize: function (config, node) {
             /* Cache DOM lookups for performance and brevity. */
             this.$el = $(node);
             this.$min = this.$('.js-min');
@@ -88,9 +93,5 @@ define(['jquery', 'jquery/ui', 'jquery/ui/touch-punch'], function ($) {
                 window.location.href = this.constructUrl(ui.values[0], ui.values[1]);
             }, this), this.config.waitTimeout);
         }
-    };
-
-    return function (config, node) {
-        priceSlider.init(config, node);
-    }
+    });
 });
