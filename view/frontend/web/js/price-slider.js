@@ -22,7 +22,7 @@ define([
             this.build();
         },
 
-        constructUrl(min, max) {
+        constructUrl: function(min, max) {
             var url = window.location.href;
             var query = url.split('?');
             var prefix = 'price=';
