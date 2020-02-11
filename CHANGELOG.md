@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.11] - 2020-02-11
+
+### Fixed
+
+- Fixed jQuery touch punch not loading on 2.3.3-p1
+
 ## [1.2.10] - 2019-06-03
 
 ### Changed
