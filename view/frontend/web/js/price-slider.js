@@ -2,7 +2,7 @@ define([
     'uiComponent',
     'jquery',
     'jquery/ui',
-    'jquery/ui/touch-punch',
+    'priceSlider/touch-punch',
     'domReady!'
 ], function (Component, $) {
 
