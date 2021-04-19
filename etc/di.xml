@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Replace Price model with PriceSlider -->
+    <virtualType name="categoryFilterList" type="Magento\Catalog\Model\Layer\FilterList">
+        <arguments>
+            <argument name="filters" xsi:type="array">
+                <item name="price" xsi:type="string">Space48\PriceSlider\Model\Layer\Filter\PriceSlider</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="searchFilterList" type="Magento\Catalog\Model\Layer\FilterList">
+        <arguments>
+            <argument name="filters" xsi:type="array">
+                <item name="price" xsi:type="string">Space48\PriceSlider\Model\Layer\Filter\PriceSlider</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Enhance Magento Filter rendering mechanism to render custom filter blocks -->
+    <type name="Space48\PriceSlider\Block\Navigation\FilterRendererComposite">
+        <arguments>
+            <argument name="filterBlocks" xsi:type="array">
+                <item name="price" xsi:type="object">Space48\PriceSlider\Block\PriceSlider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Rewrite Dynamic aggregations builder to store min and max values instead of range -->
+    <type name="Magento\Elasticsearch\SearchAdapter\Aggregation\Builder">
+        <arguments>
+            <argument name="aggregationContainer" xsi:type="array">
+                <item name="dynamicBucket" xsi:type="object">Space48\PriceSlider\Model\Aggregation\Builder\Elasticsearch\Dynamic</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Search\Adapter\Mysql\Aggregation\Builder\Container">
+        <arguments>
+            <argument name="buckets" xsi:type="array">
+                <!-- Have to redeclare 'termBucket' and 'rangeBucket' as magento does not merges array here for some reason -->
+                <item name="termBucket" xsi:type="object">Magento\Framework\Search\Adapter\Mysql\Aggregation\Builder\Term</item>
+                <item name="rangeBucket" xsi:type="object">Magento\Framework\Search\Adapter\Mysql\Aggregation\Builder\Range</item>
+
+                <!-- Actual rewrite -->
+                <item name="dynamicBucket" xsi:type="object">Space48\PriceSlider\Model\Aggregation\Builder\Mysql\Dynamic</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

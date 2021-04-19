@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="sidebar.main">
-            <block class="Space48\PriceSlider\Block\PriceSlider" template="Space48_PriceSlider::price-slider.phtml" after="catalog.leftnav" name="catalog.price.slider" as="priceSlider" />
-        </referenceContainer>
+        <referenceBlock name="catalog.navigation.renderer" remove="true"/>
+        <referenceBlock name="catalog.leftnav">
+            <block class="Space48\PriceSlider\Block\Navigation\FilterRendererComposite" name="catalog.navigation.renderer_composite" as="renderer" />
+        </referenceBlock>
     </body>
 </page>
