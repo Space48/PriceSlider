@@ -6,6 +6,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2021-04-20
+
+### Added
+
+- Possibility to specify custom FE Block to render specific Filter type (by Filter request var).
+
+### Changed
+- Changed the way Block is added to filter list on frontend. 
+  Before - it was added as a separate block unrelated to filter blocks. 
+  Now - it will replace the default Price filter Block in the Filters List.
+- Changed the way min/max price values received.
+  Before - it was creating new Layout object which lead to recreating new Product Collection and calling getMinimalPrice functions on it.
+  Now - it will use Collection Faceted Data to get min/max values.
+- Rewrote 'Dynamic' Aggregations Builder to return min/max price instead of Price ranges list.
+
+### Backward compatibility breaks
+
+Should be mostly backward compatible. Tested with 'Mysql' and 'Elastcisearch7' search engines.
+
+#### Possible incompatibilities:
+
+- Slider Block on FE now rendered in place of default Price Filter Block. 
+  You should unhide default block if it was hidden to fit previous solution.
+- Slider Block moved to default Filters list now. 
+  This can cause some styling breaking because of wrapping html elements changed.
+  The slider itself on frontend now rendered not always at the bottom of leftnav block, but in place of the default Price filter.
+
+
 ## [1.2.14] - 2020-11-30
 
 ### Changed
