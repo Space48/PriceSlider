@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2021-04-20
+
+## Changed
+
+- Rewrited DataProvider for Dynamic Price Aggregation to provide min/max price values not affected by current price filter
+
 ## [2.0.0] - 2021-04-20
 
 ### Added
