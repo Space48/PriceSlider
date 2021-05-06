@@ -15,3 +15,9 @@ From the terminal execute que following:
 then
 
 `composer require "space48/priceslider:{module-version}"`
+
+## Known issues
+
+When **Mysql** engine is used for search and catalog - applying Price filter (by dragging slider) 
+will reset min/max price values to the filter values.
+Using Elasticsearch as search engine does not have this issue.

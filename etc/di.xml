@@ -47,4 +47,7 @@
             </argument>
         </arguments>
     </type>
+
+    <!-- In Order to have min/max values on Slider independent on current Price filter applied -->
+    <preference for="Magento\Elasticsearch\SearchAdapter\Dynamic\DataProvider" type="Space48\PriceSlider\Model\SearchAdapter\Dynamic\DataProvider" />
 </config>
