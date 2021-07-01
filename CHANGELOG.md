@@ -6,10 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.1] - 2021-07-01
+
+### Changed
+- Refactored FilterRendererComposite class to use child blocks instead of DI injected blocks.
+- Fixed empty default template bug
+
 ## [2.1.0] - 2021-04-20
 
-## Changed
-
+### Changed
 - Rewrited DataProvider for Dynamic Price Aggregation to provide min/max price values not affected by current price filter
 
 ## [2.0.0] - 2021-04-20
