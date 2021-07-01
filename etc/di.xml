@@ -18,15 +18,6 @@
         </arguments>
     </virtualType>
 
-    <!-- Enhance Magento Filter rendering mechanism to render custom filter blocks -->
-    <type name="Space48\PriceSlider\Block\Navigation\FilterRendererComposite">
-        <arguments>
-            <argument name="filterBlocks" xsi:type="array">
-                <item name="price" xsi:type="object">Space48\PriceSlider\Block\PriceSlider</item>
-            </argument>
-        </arguments>
-    </type>
-
     <!-- Rewrite Dynamic aggregations builder to store min and max values instead of range -->
     <type name="Magento\Elasticsearch\SearchAdapter\Aggregation\Builder">
         <arguments>
