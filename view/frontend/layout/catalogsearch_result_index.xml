@@ -7,11 +7,10 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="catalogsearch.navigation.renderer" remove="true"/>
         <referenceBlock name="catalogsearch.leftnav">
-            <block class="Space48\PriceSlider\Block\Navigation\FilterRendererComposite" name="catalog.navigation.renderer_composite" as="renderer">
-                <block class="Space48\PriceSlider\Block\PriceSlider" name="catalog.navigation.renderer_price" as="renderer_price" />
-                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer.default" as="renderer_default" template="Magento_LayeredNavigation::layer/filter.phtml"/>
+            <block class="Space48\PriceSlider\Block\Navigation\FilterRendererComposite" name="catalogsearch.navigation.renderer" as="renderer">
+                <block class="Space48\PriceSlider\Block\PriceSlider" name="catalogsearch.navigation.renderer_price" as="renderer_price" />
+                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalogsearch.navigation.renderer.default" as="renderer_default" template="Magento_LayeredNavigation::layer/filter.phtml"/>
             </block>
         </referenceBlock>
     </body>
