@@ -3,6 +3,7 @@
 namespace Space48\PriceSlider\Block;
 
 use Magento\Catalog\Model\Layer\Filter\FilterInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\View\Element\Template;
 use Magento\LayeredNavigation\Block\Navigation\FilterRendererInterface;
@@ -10,15 +11,9 @@ use Magento\LayeredNavigation\Block\Navigation\FilterRendererInterface;
 class PriceSlider extends Template implements FilterRendererInterface
 {
 
-    /**
-     * @var string
-     */
     protected $_template = 'Space48_PriceSlider::price-slider.phtml';
-
-    /**
-     * @var Http
-     */
-    public $request;
+    protected Http $request;
+    protected ScopeConfigInterface $scopeConfig;
 
     /**
      * @var array
@@ -26,11 +21,14 @@ class PriceSlider extends Template implements FilterRendererInterface
     private $filterData = [];
 
     public function __construct(
-        Template\Context $context,
-        Http $request,
-        array $data = []
-    ) {
+        Template\Context     $context,
+        Http                 $request,
+        ScopeConfigInterface $scopeConfig,
+        array                $data = []
+    )
+    {
         $this->request = $request;
+        $this->scopeConfig = $scopeConfig;
 
         parent::__construct($context, $data);
     }
@@ -58,7 +56,7 @@ class PriceSlider extends Template implements FilterRendererInterface
     /**
      * Get Price Range
      *
-     * @return array|mixed
+     * @return array
      */
     private function getPriceRange()
     {
@@ -110,5 +108,10 @@ class PriceSlider extends Template implements FilterRendererInterface
     public function getCurrencySymbol()
     {
         return $this->_storeManager->getStore()->getCurrentCurrency()->getCurrencySymbol();
+    }
+
+    public function getConfig(string $configId): string
+    {
+        return $this->scopeConfig->getValue('spacgee48_priceslider/slider/' . $configId) ?? '';
     }
 }

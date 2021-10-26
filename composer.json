@@ -2,7 +2,7 @@
     "name": "space48/priceslider",
     "description": "A simple price slider extension for Magento 2",
     "require": {
-        "php": ">=5.5 <=8",
+        "php": ">=7.4 <=8",
         "magento/framework": "^100.1.0|^101.0.0|^102.0.0|^103.0.0"
     },
     "type": "magento2-module",

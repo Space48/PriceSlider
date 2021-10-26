@@ -5,7 +5,11 @@
         <referenceBlock name="catalog.leftnav">
             <block class="Space48\PriceSlider\Block\Navigation\FilterRendererComposite" name="catalog.navigation.renderer_composite" as="renderer">
                 <block class="Space48\PriceSlider\Block\PriceSlider" name="catalog.navigation.renderer_price" as="renderer_price" />
-                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer_default" as="renderer_default" template="Magento_LayeredNavigation::layer/filter.phtml"/>
+                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer_default" as="renderer_default" template="Magento_LayeredNavigation::layer/filter.phtml">
+                    <arguments>
+                        <argument name="product_layer_view_model" xsi:type="object">Magento\LayeredNavigation\ViewModel\Layer\Filter</argument>
+                    </arguments>
+                </block>
             </block>
         </referenceBlock>
     </body>

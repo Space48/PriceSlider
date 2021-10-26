@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="spacgee48_priceslider" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Price Slider</label>
+            <tab>catalog</tab>
+            <resource>Space48_PriceSlider::allow_edit</resource>
+            <group id="slider" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <label>Slider Settings</label>
+                <field id="highlight_color" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Highlight-Color</label>
+                    <comment>This is the color of the slider handle.</comment>
+                </field>
+                <field id="background_color" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Background-Color</label>
+                    <comment>This is the color of the slider background.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

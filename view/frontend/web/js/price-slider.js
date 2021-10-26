@@ -22,16 +22,15 @@ define([
             this.build();
         },
 
-        constructUrl: function(min, max) {
+        constructUrl: function (min, max) {
             var url = window.location.href;
             var query = url.split('?');
             var prefix = 'price=';
             var params;
 
-            /*  If min/max are not present, or the same as low/high,
-                use empty string when constructing URL. */
-            min = (min && min !== this.config.min ? min : '');
-            max = (max && max !== this.config.max ? max : '');
+            /*  If min/max are not present use empty string when constructing URL. */
+            min = (min ? min : '');
+            max = (max ? max : '');
 
             if (query.length > 1) {
                 /* Existing URL parameter */

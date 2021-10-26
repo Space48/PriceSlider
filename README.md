@@ -1,6 +1,12 @@
 # PriceSlider
 A simple price slider extension for Magento 2
 
+This is a fork of Space48/PriceSlider, which is not well maintained and is not compatible with M2 2.4. 
+This fork contains some improvements:
+
+- handles of slider do not move out of the slider background anymore
+- colors are adjustable via backend
+
 ## Install
 **Manually** 
 
@@ -14,7 +20,7 @@ From the terminal execute que following:
 
 then
 
-`composer require "space48/priceslider:{module-version}"`
+`composer require "homecoded/priceslider:{module-version}"`
 
 ## Known issues
 

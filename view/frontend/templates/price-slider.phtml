@@ -1,32 +1,41 @@
 <?php /** @var Space48\PriceSlider\Block\PriceSlider $block */ ?>
+<?php /** @var \Magento\Framework\Escaper $escaper */ ?>
+
 <div class="block price-slider">
-    <div class="block-title slider-title">
-        <strong><?php /* @escapeNotVerified */ echo __('Price') ?></strong>
+  <div class="js-price-slider">
+    <div class="price-min">
+      <span class="js-min"></span>
     </div>
-    <strong class="block-subtitle filter-subtitle"><?php /* @escapeNotVerified */ echo __('Price') ?></strong>
-    <div class="js-price-slider">
-        <div class="price-min">
-            <span class="js-min"></span>
-        </div>
-        <div class="price-bar">
-            <div class="js-bar"></div>
-        </div>
-        <div class="price-max">
-            <span class="js-max"></span>
-        </div>
+    <div class="price-max">
+      <span class="js-max"></span>
     </div>
+    <div class="price-bar">
+      <div class="js-bar"></div>
+    </div>
+  </div>
 </div>
+<style>
+  .ui-slider .ui-slider-handle:hover,
+  .ui-slider .ui-slider-handle {
+    background: <?= /**  @noEscape */ $block->getConfig('highlight_color') ?>;
+  }
+
+  .ui-slider-horizontal {
+    background: <?= /**  @noEscape */ $block->getConfig('background_color') ?>;
+  }
+</style>
 <script type="text/x-magento-init">
     {
         ".js-price-slider": {
             "priceSlider": {
-                "min": <?php echo $block->getProductsMinPrice() ?>,
-                "max": <?php echo $block->getProductsMaxPrice() ?>,
-                "low": <?php echo $block->getSliderMinPrice() ?>,
-                "high": <?php echo $block->getSliderMaxPrice() ?>,
+                "min": <?= $escaper->escapeJs($block->getProductsMinPrice()) ?>,
+                "max": <?= $escaper->escapeJs($block->getProductsMaxPrice()) ?>,
+                "low": <?= $escaper->escapeJs($block->getSliderMinPrice()) ?>,
+                "high": <?= $escaper->escapeJs($block->getSliderMaxPrice()) ?>,
                 "waitTimeout": 2000,
-                "currency": "<?php echo $block->getCurrencySymbol(); ?>"
+                "currency": "<?= $escaper->escapeJs($block->getCurrencySymbol()) ?>"
             }
         }
     }
+
 </script>
